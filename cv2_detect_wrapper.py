@@ -1,5 +1,5 @@
 """Wrapper class for a layer of abbstraction
-while working with face detection
+while working with face detection in opencv
 """
 
 __version__ = '0.2'
@@ -18,7 +18,7 @@ class Detector():
     def video_read(self):
         """Captures current frame in colour and greyscale"""
         self.frame = self._video_capture.read()[1]
-        self.frame_clean = self._video_capture.read()[1]
+        self.frame_clean = self.frame.copy()
         self.gray = cv2.cvtColor(self.frame, cv2.COLOR_BGR2GRAY)
     
     def detect(self, scale_factor, min_neighbors, min_size):
