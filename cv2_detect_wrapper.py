@@ -2,7 +2,7 @@
 while working with face detection in opencv
 """
 
-__version__ = '0.2'
+__version__ = '0.2.2'
 __author__ = "Campbell Mercer-Butcher"
 
 import cv2
