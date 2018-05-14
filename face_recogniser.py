@@ -2,25 +2,33 @@
 while working with opencv
 """
 
-__version__ = '0.0.1'
+__version__ = '0.1.2'
 __author__ = "Campbell Mercer-Butcher"
 
 import cv2
 import numpy
 
+MIN_CONFIDENCE = 80
+
 class Recogniser():
     """Wrapper class from face recognition"""
     def __init__(self):
         self.face_recogniser = cv2.face.LBPHFaceRecognizer_create()
+        self._trained = False
         
     def train(self, faces, labels):
         """Trains to recognise faces based on inputed faces and labels"""
         self.face_recogniser.train(faces, numpy.array(labels))
+        self._trained = True
         
     def predict(self, face, frame, location):
         """Creates prediction on suplied face"""
+        if not self._trained:
+            return None, frame
+        
         label, confidence = self.face_recogniser.predict(face)
-        if confidence>80:
+        
+        if confidence > MIN_CONFIDENCE:
             label = None
         else:
             self._draw_text(frame, label, location)
