@@ -1,7 +1,5 @@
 """Detects faces in video stream and applies facial 
 recognition to create profiles of detected faces"""
-
-__version__ = '0.3.1'
 __author__ = "Campbell Mercer-Butcher"
 
 from cv2_detect_wrapper import Detector
