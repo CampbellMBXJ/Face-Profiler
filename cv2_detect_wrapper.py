@@ -1,8 +1,6 @@
 """Wrapper class for a layer of abbstraction
 while working with face detection in opencv
 """
-
-__version__ = '0.4.2'
 __author__ = "Campbell Mercer-Butcher"
 
 import cv2
