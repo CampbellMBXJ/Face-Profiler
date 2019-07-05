@@ -1,8 +1,6 @@
 """Wrapper class for face recognition
 while working with opencv
 """
-
-__version__ = '0.1.2'
 __author__ = "Campbell Mercer-Butcher"
 
 import cv2
